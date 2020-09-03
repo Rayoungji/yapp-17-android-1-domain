@@ -10,4 +10,8 @@ public class Posts {
         this.postList = postList;
     }
 
+    public List<Post> getPosts() {
+        return postList;
+    }
+
 }

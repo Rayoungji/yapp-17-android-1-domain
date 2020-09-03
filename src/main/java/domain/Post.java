@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 public class Post {
@@ -27,8 +28,17 @@ public class Post {
         this.emotion = emotion;
     }
 
-    public Post createPost(LatLng latLng, String address, String city,
-                           String content, List<Image> imageList, Emotion emotion, LocalDate createdDate){
+    public static Post createPost(LatLng latLng, String address, String city,
+                                  String content, List<Image> imageList, Emotion emotion, LocalDate createdDate) {
         return new Post(latLng.getLat(), latLng.getLng(), address, content, city, createdDate, imageList, emotion);
+    }
+
+    public List<Image> getImages() {
+        return this.imageList;
+    }
+
+    public String getRandomImage() {
+        Collections.shuffle(imageList);
+        return imageList.get(0).getImageUrl();
     }
 }

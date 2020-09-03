@@ -6,4 +6,8 @@ public class Image {
     public Image(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public String getImageUrl(){
+        return imageUrl;
+    }
 }
