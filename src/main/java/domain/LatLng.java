@@ -13,14 +13,6 @@ public class LatLng {
         this.lng = lng;
     }
 
-    public double getLat() {
-        return lat;
-    }
-
-    public double getLng() {
-        return  lng;
-    }
-
     public void validateLatLng(double latLng, int standard){
         String split[] = Double.toString(latLng).split("\\.");
         int latLngSize = split[1].length();
@@ -31,5 +23,13 @@ public class LatLng {
         if(standard==6 && latLngSize!=6){
             throw new IllegalArgumentException("경도는 6자리여야 합니다");
         }
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLng() {
+        return  lng;
     }
 }

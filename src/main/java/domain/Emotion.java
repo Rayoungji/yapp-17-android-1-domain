@@ -8,4 +8,16 @@ public class Emotion {
         this.color = color;
         this.emotion = emotion;
     }
+
+    public static Emotion createEmotion(EmotionColor color, String emotion) {
+        return new Emotion(color,emotion);
+    }
+
+    public void updateEmotion(String emotion) {
+       this.emotion = emotion;
+    }
+
+    public String getEmotion(){
+        return this.emotion;
+    }
 }

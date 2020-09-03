@@ -4,25 +4,30 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class EmotionTest {
 
     @Test
     @DisplayName("감정 생성 성공")
-    void testCreateEmotionSuccess() throws Exception {
+    void testCreateEmotionSuccess() {
+        //when
+        Emotion emotion = Emotion.createEmotion(EmotionColor.BLUE,"상쾌하다");
 
+        //then
+        assertThat(emotion).isNotNull();
     }
 
     @Test
     @DisplayName("감정 수정 성공")
-    void testUpdateEmotionSuccess() throws Exception {
+    void testUpdateEmotionSuccess() {
+        //given
+        Emotion emotion = Emotion.createEmotion(EmotionColor.ORANGE, "행복");
 
-    }
+        //when
+        emotion.updateEmotion("슬픔");
 
-    @Test
-    @DisplayName("감정 수정 시 다른 색과 겹치면 예외처리")
-    void testUpdateEmotionFail() throws Exception {
+        //then
+        assertThat(emotion.getEmotion()).isEqualTo("슬픔");
 
     }
 }
