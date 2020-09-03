@@ -1,10 +1,10 @@
 package domain;
 
 public class Emotion {
-    private Color color;
+    private EmotionColor color;
     private String emotion;
 
-    public Emotion(Color color, String emotion) {
+    public Emotion(EmotionColor color, String emotion) {
         this.color = color;
         this.emotion = emotion;
     }

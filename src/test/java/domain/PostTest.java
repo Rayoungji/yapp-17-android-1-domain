@@ -16,66 +16,26 @@ import org.junit.jupiter.params.provider.ValueSource;
 class PostTest {
 
     @Test
-    @DisplayName("게시글 생성")
-    public void testCreatePost() throws Exception {
-        //given
-        Emotion emotion = new Emotion(Color.ORANGE, "즐거움");
-        LocalDate createdDate = LocalDate.now();
-        Image image1 = new EasyRandom().nextObject(Image.class);
-        Image image2 = new EasyRandom().nextObject(Image.class);
-        List<Image> imageList = new ArrayList<>();
-        imageList.add(image1);
-        imageList.add(image2);
-
-        //when
-        Post post = new Post(
-                1.111111, 0.11111111,
-                "서울시 성북구", "게시글 생성 테스트",
-                "서울시", createdDate, imageList, emotion
-        );
-
-        //then
-        assertThat(post).isNotNull();
+    @DisplayName("게시글 생성 성공")
+    void testCreatePostSuccess() throws Exception {
 
     }
 
-    @ParameterizedTest
-    @ValueSource(doubles = {0.11111, 1.11111111, 0.980767})
-    @DisplayName("위도가 6자리가 아니면 예외처리")
-    void testLatFail(double lat) throws Exception {
-        //given
-        Emotion emotion = new Emotion(Color.ORANGE, "즐거움");
-        LocalDate createdDate = LocalDate.now();
-        Image image1 = new EasyRandom().nextObject(Image.class);
-        Image image2 = new EasyRandom().nextObject(Image.class);
-        List<Image> imageList = new ArrayList<>();
-        imageList.add(image1);
-        imageList.add(image2);
+    @Test
+    @DisplayName("게시글 생성 시 이미지가 없을 때 예외처리")
+    void testNoImageException() throws Exception {
 
-        assertThrows(IllegalArgumentException.class, () -> new Post(
-                lat, 0.11111111,
-                "서울시 성북구", "게시글 생성 테스트",
-                "서울시", createdDate, imageList, emotion
-        ));
     }
 
-    @ParameterizedTest
-    @ValueSource(doubles = {0.2222222686, 1234.121234})
-    @DisplayName("경도가 7자리가 아니면 예외처리")
-    void testLngFail(double lng) throws Exception {
-        //given
-        Emotion emotion = new Emotion(Color.ORANGE, "즐거움");
-        LocalDate createdDate = LocalDate.now();
-        Image image1 = new EasyRandom().nextObject(Image.class);
-        Image image2 = new EasyRandom().nextObject(Image.class);
-        List<Image> imageList = new ArrayList<>();
-        imageList.add(image1);
-        imageList.add(image2);
+    @Test
+    @DisplayName("게시글 상세 조회시 모든 이미지 url 출력")
+    void testGetPostImages() throws Exception {
 
-        assertThrows(IllegalArgumentException.class, () -> new Post(
-                0.123456, lng,
-                "서울시 성북구", "게시글 생성 테스트",
-                "서울시", createdDate, imageList, emotion
-        ));
+    }
+
+    @Test
+    @DisplayName("게시글 전체 조회 시 이미지 url은 랜덤으로 하나 출력")
+    void testGetPostRandomImage() throws Exception {
+
     }
 }

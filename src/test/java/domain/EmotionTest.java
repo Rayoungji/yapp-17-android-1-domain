@@ -9,13 +9,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmotionTest {
 
     @Test
-    @DisplayName("감정과 색깔 생성 성공")
-    public void testCreatEmotionSuccess() throws Exception {
-        //when
-        Emotion e = new Emotion(Color.YELLOW,"행복함");
+    @DisplayName("감정 생성 성공")
+    void testCreateEmotionSuccess() throws Exception {
 
-        //then
-        assertThat(e).isNotNull();
     }
 
+    @Test
+    @DisplayName("감정 수정 성공")
+    void testUpdateEmotionSuccess() throws Exception {
+
+    }
+
+    @Test
+    @DisplayName("감정 수정 시 다른 색과 겹치면 예외처리")
+    void testUpdateEmotionFail() throws Exception {
+
+    }
 }

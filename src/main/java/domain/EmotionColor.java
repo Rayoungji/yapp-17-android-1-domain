@@ -1,5 +1,5 @@
 package domain;
 
-public enum Color {
+public enum EmotionColor {
     RED,ORANGE,YELLOW,GREEN,BLUE;
 }

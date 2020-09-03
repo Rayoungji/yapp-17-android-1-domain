@@ -13,9 +13,10 @@ public class Post {
     private List<Image> imageList;
     private Emotion emotion;
 
-    public Post(double lat, double lng, String address, String content, String city, LocalDate createdDate, List<Image> imageList, Emotion emotion) {
-        checkLocationLat(lat);
-        checkLocationLng(lng);
+    public Post(double lat, double lng, String address, String content, String city,
+                LocalDate createdDate, List<Image> imageList, Emotion emotion) {
+        this.lat = lat;
+        this.lng = lng;
         this.lat = lat;
         this.lng = lng;
         this.address = address;
@@ -26,24 +27,8 @@ public class Post {
         this.emotion = emotion;
     }
 
-    public static void checkLocationLat(double lat) {
-        String x = String.valueOf(lat);
-        String str[] = x.split("\\.");
-        int length = str[1].length();
-
-        if (length != 6) {
-            throw new IllegalArgumentException("위도는 소수점 6자리까지 작성하여주세요");
-        }
+    public Post createPost(LatLng latLng, String address, String city,
+                           String content, List<Image> imageList, Emotion emotion, LocalDate createdDate){
+        return new Post(latLng.getLat(), latLng.getLng(), address, content, city, createdDate, imageList, emotion);
     }
-
-    public static void checkLocationLng(double lng) {
-        String x = String.valueOf(lng);
-        String str[] = x.split("\\.");
-        int length = str[1].length();
-
-        if (length != 7) {
-            throw new IllegalArgumentException("경도는 소수점 7자리까지 작성하여주세요");
-        }
-    }
-
 }
